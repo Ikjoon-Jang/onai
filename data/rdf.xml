@@ -1,0 +1,1671 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/"
+     xml:base="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:forwarding="http://www.qlinx.co.kr/ontology/forwarding#">
+    <owl:Ontology rdf:about="http://www.qlinx.co.kr/ontology/forwarding">
+        <owl:versionIRI rdf:resource="http://www.qlinx.co.kr/ontology/forwarding/0.1"/>
+        <rdfs:comment>수출입 포워딩 온톨로지 구성</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#controls -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#controls">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Actuator"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:comment>액추에이터가 화물을 자동 제어</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#generatesData -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#generatesData">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#handleBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#handleBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Exporter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasDeparture -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasDeparture">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasDestination -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasDestination">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasDigitalTwin -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasDigitalTwin">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#RealWorldEntity"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#DigitalTwin"/>
+        <rdfs:comment>실제 개체와 디지털 트윈 연결</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasExporter -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasExporter">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Exporter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasImporter -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasImporter">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Importer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasSensor -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Sensor"/>
+        <rdfs:comment>화물이 사용하는 센서</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#involvesCustoms -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#involvesCustoms">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#CustomsClearance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#predicts -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#predicts">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#PredictionModel"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Event"/>
+        <rdfs:comment>예측 모델이 특정 이벤트를 예측</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#requiresDocument -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#requiresDocument">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#sendsData -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#sendsData">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Sensor"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#DataStream"/>
+        <rdfs:comment>센서가 데이터 전송</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#shippedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#shippedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Carrier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#triggersEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#triggersEvent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Sensor"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Event"/>
+        <rdfs:comment>센서 데이터가 이벤트 발생 유발</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#usesTransportMode -->
+
+    <owl:ObjectProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#usesTransportMode">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.qlinx.co.kr/ontology/Container#TransportMode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#eventType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#eventType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:comment>이벤트 유형 값</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasBaseDeliveryAmount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasBaseDeliveryAmount">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasCargoWeight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasCargoWeight">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasCarrierType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasCarrierType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Carrier"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasCurrency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasCurrency">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasCustomsFee -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasCustomsFee">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#CustomsClearance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>통관비용</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasDays -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasDays">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasDistance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasDistance">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasDocumentNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasDocumentNumber">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasETA -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasETA">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>도착예정일</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasFreightConfirmCost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasFreightConfirmCost">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasFreightCost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasFreightCost">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>운송비</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasIncoterms -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasIncoterms">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>인코텀즈조건</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasLatitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasLatitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>위도</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasLocationID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasLocationID">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Location ID</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasLocationName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasLocationName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasLocationType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasLocationType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Location 유형</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasLongitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasLongitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>경도</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Carrier"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasNewETA -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasNewETA">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasRouteID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasRouteID">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Route ID</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasRouteName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasRouteName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasTransportName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasTransportName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#TransportMode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>센서가 감지하는 값</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#hasVolume -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#hasVolume">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:comment>화물부피</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#testDecimal -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#testDecimal">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#testString -->
+
+    <owl:DatatypeProperty rdf:about="http://www.qlinx.co.kr/ontology/forwarding#testString">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/Container#Shipment -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/Container#Shipment">
+        <rdfs:comment>운송주문</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/Container#TransportMode -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/Container#TransportMode">
+        <rdfs:comment>운송모드</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Actuator -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Actuator">
+        <rdfs:comment>액추에이터 (자동화 시스템)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Carrier -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Carrier">
+        <rdfs:comment>운송사</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#CustomsClearance -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#CustomsClearance">
+        <rdfs:comment>통관프로세스</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#DataStream -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#DataStream"/>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#DigitalTwin -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#DigitalTwin"/>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Document -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Document">
+        <rdfs:comment>선적서류</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Event -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Event">
+        <rdfs:comment>특정 이벤트 (지연, 고장, 통관 문제 등)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Exporter -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Exporter">
+        <rdfs:comment>수출업체</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#FreightForwarder -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#FreightForwarder">
+        <rdfs:comment>포워딩 업체</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Importer -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Importer">
+        <rdfs:comment>수입업체</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Location -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Location">
+        <rdfs:comment>위치정보</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#PredictionModel -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#PredictionModel">
+        <rdfs:comment>AI/ML 기반 예측 모델</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#RealWorldEntity -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#RealWorldEntity">
+        <rdfs:comment>실제 세계의 물리적 개체 (Shipment, Warehouse 등)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Route -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Route">
+        <rdfs:comment>경로</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#Sensor -->
+
+    <owl:Class rdf:about="http://www.qlinx.co.kr/ontology/forwarding#Sensor">
+        <rdfs:comment>IoT 센서 (GPS, 온도 센서, 트래킹 시스템)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#carrier1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#carrier1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Carrier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#customs1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#customs1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#CustomsClearance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#documentHBL1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#documentHBL1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Document"/>
+        <forwarding:hasDocumentNumber>HBL0001</forwarding:hasDocumentNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#documentMBL1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#documentMBL1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Document"/>
+        <forwarding:hasDocumentNumber>MBL0001</forwarding:hasDocumentNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#exporter1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#exporter1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Exporter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#forwarder1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#forwarder1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#FreightForwarder"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#importer1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#importer1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Importer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#locBusan -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#locBusan">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <forwarding:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35.1297</forwarding:hasLatitude>
+        <forwarding:hasLocationID>l0001</forwarding:hasLocationID>
+        <forwarding:hasLocationName>부산항</forwarding:hasLocationName>
+        <forwarding:hasLocationType>PORT</forwarding:hasLocationType>
+        <forwarding:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">129.0494</forwarding:hasLongitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#locInchon -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#locInchon">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <forwarding:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">37.4485</forwarding:hasLatitude>
+        <forwarding:hasLocationID>l0002</forwarding:hasLocationID>
+        <forwarding:hasLocationName>인천항</forwarding:hasLocationName>
+        <forwarding:hasLocationType>PORT</forwarding:hasLocationType>
+        <forwarding:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">126.6169</forwarding:hasLongitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#locLongBeach -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#locLongBeach">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <forwarding:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">33.75</forwarding:hasLatitude>
+        <forwarding:hasLocationID>l0010</forwarding:hasLocationID>
+        <forwarding:hasLocationName>Long Beach</forwarding:hasLocationName>
+        <forwarding:hasLocationType>PORT</forwarding:hasLocationType>
+        <forwarding:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-118.2</forwarding:hasLongitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#locSanDiego -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#locSanDiego">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Location"/>
+        <forwarding:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.7090</forwarding:hasLatitude>
+        <forwarding:hasLocationID>l0011</forwarding:hasLocationID>
+        <forwarding:hasLocationName>Port of San Diego</forwarding:hasLocationName>
+        <forwarding:hasLocationType>PORT</forwarding:hasLocationType>
+        <forwarding:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-117.1625</forwarding:hasLongitude>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#route01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#route01">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <forwarding:hasDeparture rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locInchon"/>
+        <forwarding:hasDestination rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locBusan"/>
+        <forwarding:hasBaseDeliveryAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">500000</forwarding:hasBaseDeliveryAmount>
+        <forwarding:hasCurrency>KRW</forwarding:hasCurrency>
+        <forwarding:hasDays rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</forwarding:hasDays>
+        <forwarding:hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">454</forwarding:hasDistance>
+        <forwarding:hasRouteID>R0001</forwarding:hasRouteID>
+        <forwarding:hasRouteName>ICN→BUS</forwarding:hasRouteName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#route02 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#route02">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <forwarding:hasDeparture rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locInchon"/>
+        <forwarding:hasDestination rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locLongBeach"/>
+        <forwarding:hasBaseDeliveryAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10000</forwarding:hasBaseDeliveryAmount>
+        <forwarding:hasCurrency>USD</forwarding:hasCurrency>
+        <forwarding:hasDays rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12</forwarding:hasDays>
+        <forwarding:hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9700</forwarding:hasDistance>
+        <forwarding:hasRouteID>R0002</forwarding:hasRouteID>
+        <forwarding:hasRouteName>ICN→LBH</forwarding:hasRouteName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#route03 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#route03">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <forwarding:hasDeparture rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locBusan"/>
+        <forwarding:hasDestination rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locLongBeach"/>
+        <forwarding:hasBaseDeliveryAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9000</forwarding:hasBaseDeliveryAmount>
+        <forwarding:hasCurrency>USD</forwarding:hasCurrency>
+        <forwarding:hasDays rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">11</forwarding:hasDays>
+        <forwarding:hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9600</forwarding:hasDistance>
+        <forwarding:hasRouteID>R0003</forwarding:hasRouteID>
+        <forwarding:hasRouteName>BUS→LBH</forwarding:hasRouteName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#route04 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#route04">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <forwarding:hasDeparture rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locBusan"/>
+        <forwarding:hasDestination rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locInchon"/>
+        <forwarding:hasBaseDeliveryAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">400000</forwarding:hasBaseDeliveryAmount>
+        <forwarding:hasCurrency>KRW</forwarding:hasCurrency>
+        <forwarding:hasDays rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</forwarding:hasDays>
+        <forwarding:hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">450</forwarding:hasDistance>
+        <forwarding:hasRouteID>R0004</forwarding:hasRouteID>
+        <forwarding:hasRouteName>BUS→ICN</forwarding:hasRouteName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#route05 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#route05">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <forwarding:hasDeparture rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locLongBeach"/>
+        <forwarding:hasDestination rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locInchon"/>
+        <forwarding:hasBaseDeliveryAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8000</forwarding:hasBaseDeliveryAmount>
+        <forwarding:hasCurrency>USD</forwarding:hasCurrency>
+        <forwarding:hasDays rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15</forwarding:hasDays>
+        <forwarding:hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9700</forwarding:hasDistance>
+        <forwarding:hasRouteID>R0005</forwarding:hasRouteID>
+        <forwarding:hasRouteName>LBH→ICN</forwarding:hasRouteName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#route06 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#route06">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Route"/>
+        <forwarding:hasDeparture rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locLongBeach"/>
+        <forwarding:hasDestination rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#locBusan"/>
+        <forwarding:hasBaseDeliveryAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8300</forwarding:hasBaseDeliveryAmount>
+        <forwarding:hasCurrency>USD</forwarding:hasCurrency>
+        <forwarding:hasDays rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18</forwarding:hasDays>
+        <forwarding:hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9800</forwarding:hasDistance>
+        <forwarding:hasRouteID>R0006</forwarding:hasRouteID>
+        <forwarding:hasRouteName>LBH→BUS</forwarding:hasRouteName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#shipment1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#shipment1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <forwarding:hasExporter rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#exporter1"/>
+        <forwarding:hasImporter rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#importer1"/>
+        <forwarding:involvesCustoms rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#customs1"/>
+        <forwarding:requiresDocument rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#documentHBL1"/>
+        <forwarding:requiresDocument rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#documentMBL1"/>
+        <forwarding:shippedBy rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#carrier1"/>
+        <forwarding:usesTransportMode rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#transportModeAir"/>
+        <forwarding:hasCargoWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5000.0</forwarding:hasCargoWeight>
+        <forwarding:hasFreightCost rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</forwarding:hasFreightCost>
+        <forwarding:hasIncoterms>EXW</forwarding:hasIncoterms>
+        <forwarding:hasVolume rdf:datatype="http://www.w3.org/2001/XMLSchema#double">300.0</forwarding:hasVolume>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#shipment2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#shipment2">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+        <forwarding:hasExporter rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#exporter1"/>
+        <forwarding:hasImporter rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#importer1"/>
+        <forwarding:involvesCustoms rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#customs1"/>
+        <forwarding:usesTransportMode rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#transportModeSea"/>
+        <forwarding:hasCargoWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2500.0</forwarding:hasCargoWeight>
+        <forwarding:hasFreightCost rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">200.0</forwarding:hasFreightCost>
+        <forwarding:hasIncoterms>CIF</forwarding:hasIncoterms>
+        <forwarding:hasVolume rdf:datatype="http://www.w3.org/2001/XMLSchema#double">280.0</forwarding:hasVolume>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#temperatureSensor1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#temperatureSensor1">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#transportModeAir -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#transportModeAir">
+        <forwarding:hasTransportName>Air</forwarding:hasTransportName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#transportModeRail -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#transportModeRail">
+        <forwarding:hasTransportName>Rail</forwarding:hasTransportName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#transportModeRoad -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#transportModeRoad">
+        <forwarding:hasTransportName>Road</forwarding:hasTransportName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.qlinx.co.kr/ontology/forwarding#transportModeSea -->
+
+    <owl:NamedIndividual rdf:about="http://www.qlinx.co.kr/ontology/forwarding#transportModeSea">
+        <rdf:type rdf:resource="http://www.qlinx.co.kr/ontology/Container#TransportMode"/>
+        <forwarding:hasTransportName>Sea</forwarding:hasTransportName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/pm">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/event">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/tempSensor">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/tempSendor">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/data">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/temp">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/incoterms">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/mode">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/name">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/date">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/newETA">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/cost">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/newCost">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/insurance">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/totalCost">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>AI 모델이 지연 예측 시 경고 이벤트 발생</rdfs:comment>
+        <rdfs:label>S5</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#PredictionModel"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/pm"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#predicts"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/pm"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/event"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Event"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#eventType"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                                                <swrl:argument2>DelayWarning</swrl:argument2>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#triggersEvent"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>온도 센서 데이터가 5도 이하이면 이벤트 발생</rdfs:comment>
+        <rdfs:label>S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasSensor"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/tempSensor"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#sendsData"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/tempSendor"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/data"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasValue"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/data"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/temp"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                                        <swrl:arguments>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/temp"/>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </swrl:arguments>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#Event"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#eventType"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                                                                        <swrl:argument2>TemperatureAlert</swrl:argument2>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#triggersEvent"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>특정 인코텀즈(EXW)일 경우 수출업체가 운송을 담당</rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasIncoterms"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/incoterms"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/incoterms"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>EXW</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasExporter"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#handleBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/e"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>해운 운송이면 평균 운송 기간 적용</rdfs:comment>
+        <rdfs:label>S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#usesTransportMode"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/mode"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasTransportName"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/mode"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/name"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/name"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>Sea</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasETA"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/date"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
+                                                                <swrl:arguments>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/newETA"/>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/date"/>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </swrl:arguments>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasNewETA"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/newETA"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>특정 운송 모드에 따른 예상 운임 증가(Air면 1.5배)</rdfs:comment>
+        <rdfs:label>S6</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#usesTransportMode"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/mode"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasTransportName"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/mode"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/name"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/name"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>Air</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasFreightCost"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/cost"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#multiply"/>
+                                                                <swrl:arguments>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/newCost"/>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/cost"/>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.5</rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </swrl:arguments>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasFreightConfirmCost"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/newCost"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>CIF 조건이면 운임 비용에 운임 비용의 10%인 보험료를 포함하여 confirm</rdfs:comment>
+        <rdfs:label>S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.qlinx.co.kr/ontology/Container#Shipment"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasIncoterms"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/incoterms"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/incoterms"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>CIF</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasFreightCost"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/cost"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#multiply"/>
+                                                        <swrl:arguments>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/insurance"/>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/cost"/>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </swrl:arguments>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
+                                                                <swrl:arguments rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/totalCost"/>
+                                                                    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/cost"/>
+                                                                    <rdf:Description rdf:about="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/insurance"/>
+                                                                </swrl:arguments>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.qlinx.co.kr/ontology/forwarding#hasFreightConfirmCost"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/s"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/bredjang/ontologies/2025/1/untitled-ontology-20/totalCost"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

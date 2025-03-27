@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+venv/
+.env/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Environment files
+.env
+*.env
+
+# Logs
+*.log
+
+# FAISS 관련 파일 무시
+faiss_index.index
+faiss_metadata.pkl
+
+# 실행 바이너리 관련 무시시
+__pycache__/
+*.pyc
