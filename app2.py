@@ -52,7 +52,9 @@ with st.sidebar:
     st.markdown("---")
     st.subheader("🧾 최근 등록 문장")
     if metadata:
-        for i, text in enumerate(metadata[-3:][::-1]):
-            st.markdown(f"**#{index.ntotal - i}**: {text[:100]}...")
+        for i, item in enumerate(metadata[-3:][::-1]):
+            summary = item["text"][:100] if isinstance(item, dict) else str(item)[:100]
+            st.markdown(f"**#{index.ntotal - i}**: {summary}...")
     else:
         st.markdown("등록된 문장이 없습니다.")
+
