@@ -58,10 +58,11 @@ def embed_text(text: str):
 def create_site_individual(data):
     logging.info(f"✅ Received: {json.dumps(data, ensure_ascii=False)}")
     text = site_json_to_text(data)
+    print(text)
     logging.info(f"📝 Converted to text: {text}")
     embedding = embed_text(text)
     vector = np.array(embedding, dtype=np.float32).reshape(1, -1)
-
+    print("FAISS에 추가")
     # FAISS에 추가
     index.add(vector)
     metadata_list.append({
