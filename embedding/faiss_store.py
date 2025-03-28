@@ -6,9 +6,16 @@ import pickle
 import os
 from typing import List, Tuple
 
+from dotenv import load_dotenv
+load_dotenv()
+
+FAISS_INDEX_FILE
+
 VECTOR_SIZE = 1536  # OpenAI embedding vector size (e.g., text-embedding-ada-002)
-INDEX_FILE = "faiss_index.index"
-META_FILE = "faiss_metadata.pkl"
+INDEX_FILE = os.getenv("FAISS_INDEX_FILE")
+# "faiss_index.index"
+META_FILE = os.getenv("FAISS_META_FILE")
+# "faiss_metadata.pkl"
 
 # 문장 + 벡터를 FAISS 인덱스와 메타데이터로 저장
 def save_embeddings_to_faiss(sentences: List[str], embeddings: List[List[float]]):
