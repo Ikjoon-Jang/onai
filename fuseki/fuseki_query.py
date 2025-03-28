@@ -1,7 +1,9 @@
 import requests
+import os
 from typing import List, Dict, Tuple
 
-FUSEKI_ENDPOINT = "http://3.36.178.68:3030/qlinx/query"
+# FUSEKI_ENDPOINT = "http://3.36.178.68:3030/qlinx/query"
+FUSEKI_ENDPOINT = os.getenv("FUSEKI_QUERY_URL")
 
 def run_sparql_query(query: str) -> List[Dict]:
     headers = {"Accept": "application/sparql-results+json"}

@@ -2,8 +2,8 @@ import os
 from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF
 
-# FORWARDING = Namespace(os.getenv("ROOT_NAMESPACE"))
-FORWARDING = Namespace("http://www.qlinx.co.kr/ontology/forwarding#")
+FORWARDING = Namespace(os.getenv("ROOT_NAMESPACE"))
+#FORWARDING = Namespace("http://www.qlinx.co.kr/ontology/forwarding#")
 
 def parse_message_to_dict(message_str):
     parts = message_str.split()

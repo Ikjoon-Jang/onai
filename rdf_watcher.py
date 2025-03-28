@@ -10,7 +10,8 @@ from watchdog.events import FileSystemEventHandler
 from fuseki.fuseki_sync import sync_with_fuseki
 from update.update_pipeline import main as run_embedding_pipeline
 
-RDF_FILE = "./data/rdf.xml"
+# RDF_FILE = "./data/rdf.xml"
+RDF_FILE = os.getenv("RDF_FILE")
 
 # 로그 파일에 시분초 포함
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")

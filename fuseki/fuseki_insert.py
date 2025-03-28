@@ -3,10 +3,14 @@
 import rdflib
 import requests
 import logging
+import os
 
-FUSEKI_UPDATE_URL = "http://3.36.178.68:3030/qlinx/update"
-FUSEKI_QUERY_URL = "http://3.36.178.68:3030/qlinx/query"
-RDF_FILE = "./data/rdf.xml"
+# FUSEKI_UPDATE_URL = "http://3.36.178.68:3030/qlinx/update"
+# FUSEKI_QUERY_URL = "http://3.36.178.68:3030/qlinx/query"
+# RDF_FILE = "./data/rdf.xml"
+FUSEKI_UPDATE_URL = os.getenv("FUSEKI_UPDATE_URL")
+FUSEKI_QUERY_URL = os.getenv("FUSEKI_QUERY_URL")
+RDF_FILE = os.getenv("RDF_FILE")
 
 logging.basicConfig(level=logging.INFO)
 
