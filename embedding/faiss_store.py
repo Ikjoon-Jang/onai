@@ -7,14 +7,15 @@ import os
 from typing import List, Tuple
 
 from dotenv import load_dotenv
-load_dotenv()
+# load_dotenv()
 
-FAISS_INDEX_FILE
+env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
+load_dotenv(dotenv_path=env_path)
 
 VECTOR_SIZE = 1536  # OpenAI embedding vector size (e.g., text-embedding-ada-002)
 INDEX_FILE = os.getenv("FAISS_INDEX_FILE")
 # "faiss_index.index"
-META_FILE = os.getenv("FAISS_META_FILE")
+META_FILE =  os.getenv("FAISS_META_FILE")
 # "faiss_metadata.pkl"
 
 # 문장 + 벡터를 FAISS 인덱스와 메타데이터로 저장
@@ -68,5 +69,11 @@ def append_to_faiss_index(new_sentences: List[str], new_embeddings: List[List[fl
         pickle.dump(sentences, f)
 
     print(f"✅ FAISS 인덱스에 {len(new_sentences)}개 문장을 추가 저장했습니다.")
+
+def load_index_and_metadata():
+    index = faiss.read_index(INDEX_FILE)
+    with open(META_FILE, "rb") as f:
+        metadata = pickle.load(f)
+    return index, metadata
 
 save_faiss_index = save_embeddings_to_faiss
