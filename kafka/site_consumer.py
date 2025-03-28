@@ -41,6 +41,7 @@ else:
 def site_json_to_text(site: dict) -> str:
     return (
         f"{site.get('city', '도시')} {site.get('address', '주소')}에 위치한 사이트는 "
+        f"아이디는 {site.get('id', 'N/A')} 이며, 이름은 {site.get('name', 'N/A')} 이고, "
         f"위도 {site.get('latitude', 'N/A')}°, 경도 {site.get('longitude', 'N/A')}°에 있으며, "
         f"{site.get('country', '국가')}에 속합니다."
     )

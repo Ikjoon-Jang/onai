@@ -15,6 +15,7 @@ producer = KafkaProducer(
 # 샘플 Site 데이터 (Ontology에 맞게 수정 가능)
 sample_site = {
     "id": "Site001",
+    "name": "부산항",
     "address": "부산광역시 영도구 해양로 301번길",
     "country": "대한민국",
     "city": "부산",
