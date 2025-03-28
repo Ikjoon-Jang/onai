@@ -2,6 +2,9 @@ import os
 from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF
 
+from dotenv import load_dotenv
+load_dotenv()
+
 FORWARDING = Namespace(os.getenv("ROOT_NAMESPACE"))
 #FORWARDING = Namespace("http://www.qlinx.co.kr/ontology/forwarding#")
 

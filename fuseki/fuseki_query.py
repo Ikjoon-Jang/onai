@@ -2,6 +2,9 @@ import requests
 import os
 from typing import List, Dict, Tuple
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # FUSEKI_ENDPOINT = "http://3.36.178.68:3030/qlinx/query"
 FUSEKI_ENDPOINT = os.getenv("FUSEKI_QUERY_URL")
 

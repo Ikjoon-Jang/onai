@@ -5,6 +5,9 @@ import requests
 import logging
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # FUSEKI_UPDATE_URL = "http://3.36.178.68:3030/qlinx/update"
 # FUSEKI_QUERY_URL = "http://3.36.178.68:3030/qlinx/query"
 # RDF_FILE = "./data/rdf.xml"
