@@ -23,8 +23,8 @@ logging.basicConfig(
 )
 
 # 4. FAISS 인덱스 설정
-faiss_index_file = "faiss/site_index.index"
-faiss_metadata_file = "faiss/site_metadata.pkl"
+faiss_index_file = "faiss_index.index"
+faiss_metadata_file = "faiss_metadata.pkl"
 os.makedirs("faiss", exist_ok=True)
 
 # 인덱스 로드 또는 초기화
