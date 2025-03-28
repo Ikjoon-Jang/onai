@@ -14,13 +14,13 @@ producer = KafkaProducer(
 
 # 샘플 Site 데이터 (Ontology에 맞게 수정 가능)
 sample_site = {
-    "id": "Site002",
-    "name": "아산공장",
-    "address": "충청남도 아산시 시민로 456",
-    "country": "대한민국",
-    "city": "아산",
-    "latitude": 36.7890,
-    "longitude": 127.0010
+    "id": "Site015",
+    "name": "배송야드",
+    "address": "1 Civic Center Plaza, Irvine, CA 92606, USA",
+    "country": "USA",
+    "city": "Irvine",
+    "latitude": 33.6846,
+    "longitude": -117.8265
 }
 
 # 토픽으로 메시지 전송
