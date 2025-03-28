@@ -48,11 +48,15 @@ def site_json_to_text(site: dict) -> str:
 
 # 6. OpenAI 임베딩
 def embed_text(text: str):
-    response = client.embeddings.create(
-        input=text,
-        model="text-embedding-3-small"
-    )
-    return response.data[0].embedding
+    try:
+        response = client.embeddings.create(
+            input=text,
+            model="text-embedding-3-small"
+        )
+        return response.data[0].embedding
+    except Exception as e:
+        logging.error(f"❌ OpenAI embedding error: {e}")
+        return []
 
 # 7. 전체 처리 함수
 def create_site_individual(data):
@@ -89,4 +93,8 @@ print("📡 Listening on topic:", os.getenv("SITE_TOPIC_NAME"))
 for message in consumer:
     site_data = message.value
     print(site_data)
-    create_site_individual(site_data)
+    try:
+        create_site_individual(site_data)
+    except Exception as e:
+        logging.error(f"❌ Error in create_site_individual: {e}")
+        print("❌ 오류 발생:", e)
