@@ -87,4 +87,5 @@ consumer = KafkaConsumer(
 print("📡 Listening on topic:", os.getenv("SITE_TOPIC_NAME"))
 for message in consumer:
     site_data = message.value
-    create_site_individual(site_data)
+    print(site_data)
+    # create_site_individual(site_data)
