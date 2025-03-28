@@ -40,10 +40,10 @@ else:
 # 5. JSON → 자연어 문장 변환
 def site_json_to_text(site: dict) -> str:
     return (
-        # f"{site.get('city', '도시')} {site.get('address', '주소')}에 위치한 사이트는 "
-        # f"아이디는 {site.get('id', '아이디')} 이며, 이름은 {site.get('name', '이름')} 이고, "
-        # f"위도 {site.get('latitude', '위도')}°, 경도 {site.get('longitude', '경도')}°에 있으며, "
-        # f"{site.get('country', '국가')}에 속합니다."
+        f"{site.get('city', '도시')} {site.get('address', '주소')}에 위치한 사이트는 "
+        f"아이디는 {site.get('id', '아이디')} 이며, 이름은 {site.get('name', '이름')} 이고, "
+        f"위도 {site.get('latitude', '위도')}°, 경도 {site.get('longitude', '경도')}°에 있으며, "
+        f"{site.get('country', '국가')}에 속합니다."
     )
 
 # 6. OpenAI 임베딩
