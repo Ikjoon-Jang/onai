@@ -80,7 +80,7 @@ def create_site_individual(data):
 consumer = KafkaConsumer(
     os.getenv("SITE_TOPIC_NAME"),
     bootstrap_servers=os.getenv("KAFKA_IP"),
-    auto_offset_reset='earliest',
+    auto_offset_reset='lastest',
     value_deserializer=lambda m: json.loads(m.decode('utf-8'))
 )
 
