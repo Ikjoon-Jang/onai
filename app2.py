@@ -3,7 +3,8 @@ import time
 import os
 from dotenv import load_dotenv
 from aiqa.rag_query import generate_answer
-from embedding.faiss_store import load_index_and_metadata
+from embedding.faiss_store import load_index_and_metadata, search_faiss
+from embedding.embedding import get_embedding
 
 # 📦 .env 불러오기
 load_dotenv()
@@ -43,6 +44,17 @@ if user_input:
         st.markdown("### 🤖 GPT 응답")
         st.success(answer)
 
+        # 🔍 유사도 결과 보기
+        st.markdown("### 🔍 유사도 기반 관련 문장")
+        results = search_faiss(
+            get_embedding(user_input),
+            st.session_state["faiss_index"],
+            st.session_state["faiss_meta"],
+            k=5
+        )
+        for i, (text, score) in enumerate(results, 1):
+            st.markdown(f"**{i}. ({score:.4f})** {text}")
+
 # 📊 벡터 상태 정보 (Sidebar)
 with st.sidebar:
     st.header("📊 FAISS 상태")
@@ -68,5 +80,3 @@ with st.sidebar:
         st.markdown("</div>", unsafe_allow_html=True)
     else:
         st.markdown("등록된 문장이 없습니다.")
-
-
