@@ -51,10 +51,17 @@ with st.sidebar:
     st.markdown(f"**총 벡터 수**: `{index.ntotal}`")
     st.markdown("---")
     st.subheader("🧾 최근 등록 문장")
+
     if metadata:
-        for i, item in enumerate(metadata[-3:][::-1]):
+        st.markdown("""
+        <div style='height: 300px; overflow-y: auto; padding-right:10px;'>
+        """, unsafe_allow_html=True)
+
+        for i, item in enumerate(metadata[::-1]):  # 전체 표시
             full_text = item["text"] if isinstance(item, dict) else str(item)
-            st.markdown(f"**#{index.ntotal - i}**:<br>{full_text}", unsafe_allow_html=True)
+            st.markdown(f"**#{index.ntotal - i}**:<br>{full_text}<hr>", unsafe_allow_html=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
     else:
         st.markdown("등록된 문장이 없습니다.")
 
