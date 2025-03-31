@@ -24,8 +24,8 @@ sample_route = {
     "transport_mode": "Truck",
     "transport_distance": 430.5,
     "distance_unit": "km",
-    "departure": "Site001",        # LA야드
-    "destination": "Site002"       # 배송야드
+    "departure": "Site001",        
+    "destination": "Site002"       
 }
 
 # 4. Kafka 토픽으로 전송
