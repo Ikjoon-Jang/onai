@@ -36,20 +36,33 @@ else:
     index = faiss.IndexFlatL2(embedding_dim)
     metadata_list = []
 
-# 5. JSON → 자연어 문장 변환 함수 (Class 연관 포함)
+# 5. JSON → 자연어 병렬 문장 변환 함수
 def individual_json_to_text(data: dict) -> str:
-    type_name = data.get("type", "Site")  # 기본값을 Site로 설정
+    type_name = data.get("type", "Site")
     ind_id = data.get("id", "(unknown)")
+    name = data.get("name", "(no name)")
+    address = data.get("address", "주소 정보 없음")
+    city = data.get("city", "도시 정보 없음")
+    country = data.get("country", "국가 정보 없음")
+    lat = data.get("latitude", "위도 없음")
+    lon = data.get("longitude", "경도 없음")
 
-    text = f"{ind_id} is an individual of type {type_name}."
-
-    name_info = f" Its name is {data.get('name', '(no name)')}."
-    location = (
-        f" It is located in {data.get('city', 'a city')}, at {data.get('address', 'an address')}, "
-        f"with latitude {data.get('latitude', 'N/A')}° and longitude {data.get('longitude', 'N/A')}° in {data.get('country', 'a country')}."
+    # 영어 문장
+    eng = (
+        f"{ind_id} is an individual of type {type_name}. "
+        f"Its name is {name}. "
+        f"It is located in {city}, at {address}, with latitude {lat}° and longitude {lon}° in {country}."
     )
 
-    return f"{text}{name_info}{location}"
+    # 한글 문장
+    kor = (
+        f"{ind_id}는 {type_name} 타입의 개체입니다. 이름은 {name}이며, "
+        f"{country} {city}의 {address}에 위치해 있고, "
+        f"위도는 {lat}°, 경도는 {lon}°입니다."
+    )
+
+    return f"{eng} / {kor}"
+
 
 # 6. 임베딩 함수
 def embed_text(text: str):
