@@ -29,7 +29,8 @@ def save_embeddings_to_faiss(sentences: List[str], embeddings: List[List[float]]
 
     # 벡터 추가
     index.add(vectors)
-    metadata.extend(sentences)
+    metadata.extend([{"text": s, "source": "ontology"} for s in sentences])
+    # metadata.extend(sentences)
 
     # 저장
     faiss.write_index(index, INDEX_FILE)

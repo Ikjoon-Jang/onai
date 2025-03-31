@@ -1,73 +1,46 @@
-import logging
-from datetime import datetime
 import os
+import pickle
+from dotenv import load_dotenv
+from embedding.faiss_store import save_embeddings_to_faiss
+from ontology_to_text import ontology_elements_to_sentences
+from fuseki_query import get_all_ontology_elements
+import faiss
 
-from fuseki.fuseki_query import (
-    get_classes,
-    get_object_properties,
-    get_data_properties,
-    get_individuals_with_literals_and_relations,
-    get_swrl_rules,
-)
-from utils.ontology_to_text import ontology_elements_to_sentences
-from embedding.embedding import get_embedding
-from embedding.faiss_store import save_faiss_index
+# 1. 환경 변수 로드
+load_dotenv()
 
-os.makedirs("logs", exist_ok=True)
+FAISS_INDEX_FILE = os.getenv("FAISS_INDEX_FILE")
+FAISS_META_FILE = os.getenv("FAISS_META_FILE")
 
-timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-log_filename = f"logs/pipeline_{timestamp}.log"
+# ✅ 기존 FAISS 인덱스 및 메타데이터 초기화
+if os.path.exists(FAISS_INDEX_FILE):
+    os.remove(FAISS_INDEX_FILE)
+    print(f"🧹 기존 인덱스 파일 삭제: {FAISS_INDEX_FILE}")
 
-# 로깅 설정
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler(log_filename, encoding="utf-8"),
-        logging.StreamHandler()
-    ],
-)
+if os.path.exists(FAISS_META_FILE):
+    with open(FAISS_META_FILE, "rb") as f:
+        old_data = pickle.load(f)
 
-SENTENCE_LOG_FILE = f"logs/sentences_{timestamp}.log"
+    cleaned = []
+    for item in old_data:
+        if isinstance(item, str):
+            cleaned.append({"text": item, "source": "legacy"})
+        elif isinstance(item, dict) and "text" in item:
+            cleaned.append(item)
 
-def save_sentences_to_file(sentences, filename=SENTENCE_LOG_FILE):
-    with open(filename, "w", encoding="utf-8") as f:
-        for i, sentence in enumerate(sentences, 1):
-            f.write(f"{i}. {sentence}\n")
-    logging.info(f"📝 자연어 문장 {len(sentences)}개를 '{filename}'에 저장 완료")
+    with open(FAISS_META_FILE, "wb") as f:
+        pickle.dump(cleaned, f)
 
-def main():
-    logging.info("🚀 Fuseki에서 온톨로지 요소 가져오는 중...")
-    classes = get_classes()
-    object_props = get_object_properties()
-    data_props = get_data_properties()
-    individuals = get_individuals_with_literals_and_relations()
-    swrl_rules = get_swrl_rules()
-    logging.info("✅ 온톨로지 요소 불러오기 완료")
+    print(f"🧹 기존 메타데이터 정리 완료: {len(cleaned)}개 항목 유지")
 
-    logging.info("🧠 자연어 문장으로 변환 중...")
-    sentences = ontology_elements_to_sentences(
-        classes, object_props, data_props, individuals, swrl_rules
-    )
-    logging.info(f"✅ 총 {len(sentences)}개의 문장 생성")
-    save_sentences_to_file(sentences)
+# 2. Fuseki에서 온톨로지 요소 가져오기
+classes, object_props, data_props, individuals, rules = get_all_ontology_elements()
 
-    logging.info("🔍 OpenAI 임베딩 생성 중...")
-    embeddings = []
-    valid_sentences = []
-    for sentence in sentences:
-        try:
-            emb = get_embedding(sentence)
-            embeddings.append(emb)
-            valid_sentences.append(sentence)
-        except Exception as e:
-            logging.warning(f"❌ 임베딩 실패: '{sentence}' => {e}")
+# 3. 요소들을 자연어 문장으로 변환 후 메타데이터 포맷 통일
+sentences = ontology_elements_to_sentences(classes, object_props, data_props, individuals, rules)
+metadata = [{"text": s, "source": "ontology"} for s in sentences]
 
-    logging.info(f"✅ 임베딩 생성 완료: {len(embeddings)}개")
+# 4. FAISS 저장
+save_embeddings_to_faiss(sentences, metadata)
 
-    logging.info("💾 FAISS 인덱스 저장 중...")
-    save_faiss_index(valid_sentences, embeddings)
-    logging.info("✅ FAISS 인덱스 저장 완료")
-
-if __name__ == "__main__":
-    main()
+print(f"✅ 총 {len(sentences)}개의 문장을 임베딩하고 인덱스를 새로 저장했습니다.")
