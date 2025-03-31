@@ -69,7 +69,8 @@ def embed_text(text: str):
     try:
         response = client.embeddings.create(
             input=text,
-            model="text-embedding-3-small"
+            model=os.getenv("EMBEDDING_MODEL")
+            # "text-embedding-3-small"
         )
         return response.data[0].embedding
     except Exception as e:
