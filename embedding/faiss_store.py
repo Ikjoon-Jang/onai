@@ -47,7 +47,13 @@ def load_index_and_metadata() -> Tuple[faiss.IndexFlatL2, List[str]]:
     return index, metadata
 
 # 🔹 질의 벡터로 유사 문장 검색
+import numpy as np
+
 def search_faiss(query_vector, index, metadata, k=5):
+    """
+    FAISS 인덱스를 사용하여 유사한 문장을 검색합니다.
+    거리 값을 유사도로 변환하여 함께 반환합니다.
+    """
     query = np.array([query_vector], dtype="float32")
     D, I = index.search(query, k)
 
@@ -55,16 +61,18 @@ def search_faiss(query_vector, index, metadata, k=5):
     for idx, i in enumerate(I[0]):
         if i < len(metadata):
             item = metadata[i]
-            # dict이면 "text" 키 우선, 아니면 그대로 출력
+            # dict이면 "text" 키 우선, 아니면 str(item)
             if isinstance(item, dict):
                 text = item.get("text", str(item))
             else:
                 text = str(item)
-            score = float(D[0][idx])  # 🟡 float로 명시
-            results.append((text, score))
+            distance = float(D[0][idx])
+            similarity = 1 / (1 + distance)  # 🎯 유사도 계산 (0~1 사이, 높을수록 유사)
+            results.append((text, similarity))
         else:
-            results.append((f"(Invalid index {i})", float(D[0][idx])))
+            results.append((f"(Invalid index {i})", 0.0))
     return results
+
 
 def save_faiss_index(sentences: List[str], embeddings: List[List[float]]):
     # 벡터 준비
