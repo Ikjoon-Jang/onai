@@ -24,16 +24,16 @@ producer = KafkaProducer(
 #     "type": "Site"
 # }
 
-sample_site = {
-    "id": "Site002",
-    "name": "부산항",
-    "address": "부산광역시 강서구 성북동 1",
-    "country": "대한민국",
-    "city": "부산광역시",
-    "latitude": 35.0525,
-    "longitude": 128.8336,
-    "type": "Site"
-}
+# sample_site = {
+#     "id": "Site002",
+#     "name": "부산항",
+#     "address": "부산광역시 강서구 성북동 1",
+#     "country": "대한민국",
+#     "city": "부산광역시",
+#     "latitude": 35.0525,
+#     "longitude": 128.8336,
+#     "type": "Site"
+# }
 
 
 # sample_site = {
@@ -60,16 +60,16 @@ sample_site = {
 # }
 
 
-# sample_site = {
-#     "id": "Site015",
-#     "name": "배송야드",
-#     "address": "1 Civic Center Plaza, Irvine, CA 92606, USA",
-#     "country": "USA",
-#     "city": "Irvine",
-#     "latitude": 33.6846,
-#     "longitude": -117.8265,
-#     "type": "Site"
-# }
+sample_site = {
+    "id": "Site015",
+    "name": "배송야드",
+    "address": "1 Civic Center Plaza, Irvine, CA 92606, USA",
+    "country": "USA",
+    "city": "Irvine",
+    "latitude": 33.6846,
+    "longitude": -117.8265,
+    "type": "Site"
+}
 
 
 # 토픽으로 메시지 전송
