@@ -2,8 +2,8 @@ import os
 import pickle
 from dotenv import load_dotenv
 from embedding.faiss_store import save_embeddings_to_faiss
-from ontology_to_text import ontology_elements_to_sentences
-from fuseki_query import get_all_ontology_elements
+from utils.ontology_to_text import ontology_elements_to_sentences
+from fuseki.fuseki_query import get_all_ontology_elements
 import faiss
 
 # 1. 환경 변수 로드
