@@ -61,7 +61,7 @@ def individual_json_to_text(data: dict) -> str:
         f"위도는 {lat}°, 경도는 {lon}°입니다."
     )
 
-    return f"{eng} / {kor}"
+    return f"{kor} / {eng}"
 
 
 # 6. 임베딩 함수

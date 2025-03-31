@@ -133,3 +133,23 @@ def triples_to_natural_text(triples: List[Tuple[str, str, str]]) -> List[str]:
             sentences.append(f"{subj}는 {pred}가 {obj}입니다.")
 
     return sentences
+
+def ontology_elements_to_sentences_parallel(classes, object_props, data_props, individuals, rules):
+    """한글 + 영문 병렬 문장 리스트 반환"""
+    def to_kor(text):
+        # 간단한 병렬 번역 템플릿 예시
+        if "is a concept" in text:
+            return text.replace("is a concept in the ontology.", "는 온톨로지 개념입니다.")
+        if "is an individual of type" in text:
+            return text.replace("is an individual of type", "는 타입의 개체입니다.")
+        if "It has literal values:" in text:
+            text = text.replace("It has literal values:", "리터럴 속성:")
+        if "It is connected to:" in text:
+            text = text.replace("It is connected to:", "연결된 속성:")
+        return text  # 그대로 반환해도 됨
+
+    results = []
+    for s in ontology_elements_to_sentences(classes, object_props, data_props, individuals, rules):
+        kor = to_kor(s)
+        results.append(f"{s} / {kor}")
+    return results
