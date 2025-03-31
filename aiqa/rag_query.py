@@ -25,6 +25,10 @@ def generate_answer(user_question: str, index=None, metadata=None, top_k: int = 
 
     # 3. FAISS 검색
     results = search_faiss(query_vec, index, metadata, top_k)
+
+    if not results:
+        return "❗ 관련 정보를 찾을 수 없습니다. 질문을 다시 입력해 주세요."
+
     context_sentences = [f"[{round(score, 3)}] {text}" for text, score in results]
     context = "\n".join(context_sentences)
 

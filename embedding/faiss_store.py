@@ -49,4 +49,15 @@ def load_index_and_metadata() -> Tuple[faiss.IndexFlatL2, List[str]]:
 def search_faiss(query_vector, index, metadata, k=5):
     query = np.array([query_vector], dtype="float32")
     D, I = index.search(query, k)
-    return [(metadata[i]["text"], D[0][idx]) for idx, i in enumerate(I[0])]
+
+    results = []
+    for idx, i in enumerate(I[0]):
+        if i < len(metadata):
+            item = metadata[i]
+            # dict이면 "text" 키 우선, 아니면 그대로 출력
+            if isinstance(item, dict):
+                text = item.get("text", str(item))
+            else:
+                text = str(item)
+            results.append((text, D[0][idx]))
+    return results
