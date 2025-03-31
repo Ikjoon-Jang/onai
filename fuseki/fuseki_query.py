@@ -173,9 +173,10 @@ def get_triples_for_individual(individual_uri: str) -> List[Tuple[str, str, str]
 
 
 def get_all_ontology_elements():
-    classes = get_classes()
-    object_props = get_object_properties()
-    data_props = get_data_properties()
-    individuals = get_individuals_with_literals_and_relations()
-    rules = get_swrl_rules()
-    return classes, object_props, data_props, individuals, rules
+    return {
+        "classes": get_classes(),
+        "object_props": get_object_properties(),
+        "data_props": get_data_properties(),
+        "individuals": get_individuals_with_literals_and_relations(),
+        "rules": get_swrl_rules()
+    }
