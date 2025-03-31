@@ -60,7 +60,10 @@ def search_faiss(query_vector, index, metadata, k=5):
                 text = item.get("text", str(item))
             else:
                 text = str(item)
-            results.append((text, D[0][idx]))
+            score = float(D[0][idx])  # 🟡 float로 명시
+            results.append((text, score))
+        else:
+            results.append((f"(Invalid index {i})", float(D[0][idx])))
     return results
 
 def save_faiss_index(sentences: List[str], embeddings: List[List[float]]):
