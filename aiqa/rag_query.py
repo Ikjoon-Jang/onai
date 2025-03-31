@@ -15,7 +15,7 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 GPT_MODEL = "gpt-3.5-turbo"
 
 # GPT 응답 생성 함수
-def generate_answer(user_question: str, index=None, metadata=None, top_k: int = 5) -> str:
+def generate_answer(user_question: str, index=None, metadata=None, top_k: int = 10) -> str:
     # 1. 사용자 질문 임베딩
     query_vec = get_embedding(user_question)
 
@@ -24,14 +24,18 @@ def generate_answer(user_question: str, index=None, metadata=None, top_k: int = 
         index, metadata = load_index_and_metadata()
 
     # 3. FAISS 검색
-    context_sentences = search_faiss(query_vec, index, metadata, top_k)
+    results = search_faiss(query_vec, index, metadata, top_k)
+    context_sentences = [f"[{round(score, 3)}] {text}" for text, score in results]
     context = "\n".join(context_sentences)
 
     # 4. GPT 질의
     messages = [
         {
             "role": "system",
-            "content": "You are an expert AI assistant that uses domain knowledge to answer questions based on the provided context.",
+            "content": (
+                "You are an expert AI assistant that uses domain knowledge to answer questions based on the provided context. "
+                "Answer accurately and concisely. If the context is insufficient, respond that the information is not available."
+            )
         },
         {
             "role": "user",

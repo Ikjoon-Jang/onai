@@ -46,7 +46,7 @@ def load_index_and_metadata() -> Tuple[faiss.IndexFlatL2, List[str]]:
     return index, metadata
 
 # 🔹 질의 벡터로 유사 문장 검색
-def search_faiss(query_vector: List[float], index, metadata, k: int = 5) -> List[str]:
+def search_faiss(query_vector, index, metadata, k=5):
     query = np.array([query_vector], dtype="float32")
     D, I = index.search(query, k)
-    return [metadata[i] for i in I[0]]
+    return [(metadata[i]["text"], D[0][idx]) for idx, i in enumerate(I[0])]
