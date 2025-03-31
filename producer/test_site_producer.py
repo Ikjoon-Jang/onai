@@ -24,16 +24,16 @@ producer = KafkaProducer(
 #     "type": "Site"
 # }
 
-# sample_site = {
-#     "id": "Site002",
-#     "name": "부산항",
-#     "address": "부산광역시 강서구 성북동 1",
-#     "country": "대한민국",
-#     "city": "부산광역시",
-#     "latitude": 35.0525,
-#     "longitude": 128.8336,
-#     "type": "Site"
-# }
+sample_site = {
+    "id": "Site002",
+    "name": "부산항",
+    "address": "부산광역시 강서구 성북동 1",
+    "country": "대한민국",
+    "city": "부산광역시",
+    "latitude": 35.0525,
+    "longitude": 128.8336,
+    "type": "Site"
+}
 
 
 # sample_site = {
@@ -48,16 +48,16 @@ producer = KafkaProducer(
 # }
 
 
-sample_site = {
-    "id": "Site011",
-    "name": "LA야드",
-    "address": "200 N Spring St, Los Angeles, CA 90012, USA",
-    "country": "USA",
-    "city": "Los Angeles",
-    "latitude": 34.0537,
-    "longitude": -118.2428,
-    "type": "Site"
-}
+# sample_site = {
+#     "id": "Site011",
+#     "name": "LA야드",
+#     "address": "200 N Spring St, Los Angeles, CA 90012, USA",
+#     "country": "USA",
+#     "city": "Los Angeles",
+#     "latitude": 34.0537,
+#     "longitude": -118.2428,
+#     "type": "Site"
+# }
 
 
 # sample_site = {

@@ -12,7 +12,7 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # ✅ 사용할 임베딩 모델 지정
-EMBEDDING_MODEL = "text-embedding-ada-002"
+EMBEDDING_MODEL = "text-embedding-3-small"
 
 # ✅ 단일 텍스트를 임베딩 벡터로 변환
 def get_embedding(text: str) -> List[float]:
