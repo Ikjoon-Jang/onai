@@ -10,7 +10,7 @@ with open(os.getenv("FAISS_META_FILE"), "rb") as f:
     data = pickle.load(f)
 
 # 3. 최근 5개 출력 (방어적 출력)
-for i, item in enumerate(data[-20:]):
+for i, item in enumerate(data[-37:]):
     if isinstance(item, dict) and "text" in item:
         print(f"[{i}] {item['text']}")
     else:
