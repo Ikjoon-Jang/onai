@@ -49,13 +49,12 @@ with st.sidebar:
     index = st.session_state["faiss_index"]
     metadata = st.session_state["faiss_meta"]
     st.markdown(f"**총 벡터 수**: `{index.ntotal}`")
-    st.markdown("---")
-    st.subheader("🧾 최근 등록 문장")
-
     st.sidebar.markdown("---")
     st.sidebar.markdown("🔍 **사용 중인 파일 경로**")
     st.sidebar.markdown(f"- **Index**: `{os.getenv('FAISS_INDEX_FILE')}`")
     st.sidebar.markdown(f"- **Metadata**: `{os.getenv('FAISS_META_FILE')}`")
+    st.markdown("---")
+    st.subheader("🧾 최근 등록 문장")
 
     if metadata:
         st.markdown("""
