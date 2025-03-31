@@ -62,3 +62,20 @@ def search_faiss(query_vector, index, metadata, k=5):
                 text = str(item)
             results.append((text, D[0][idx]))
     return results
+
+def save_faiss_index(sentences: List[str], embeddings: List[List[float]]):
+    # 벡터 준비
+    vectors = np.array(embeddings, dtype="float32")
+
+    # FAISS 인덱스 초기화 및 추가
+    index = faiss.IndexFlatL2(VECTOR_SIZE)
+    index.add(vectors)
+
+    # 인덱스 저장
+    faiss.write_index(index, INDEX_FILE)
+
+    # 메타데이터 저장
+    with open(META_FILE, "wb") as f:
+        pickle.dump(sentences, f)
+
+    print(f"✅ 저장 완료: {len(sentences)}개 문장을 FAISS에 저장했습니다.")
