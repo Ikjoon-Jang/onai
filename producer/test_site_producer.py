@@ -20,7 +20,8 @@ sample_site = {
     "country": "USA",
     "city": "Irvine",
     "latitude": 33.6846,
-    "longitude": -117.8265
+    "longitude": -117.8265,
+    "type": "Site"
 }
 
 # 토픽으로 메시지 전송

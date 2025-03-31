@@ -27,7 +27,6 @@ faiss_index_file = os.getenv("FAISS_INDEX_FILE")
 faiss_metadata_file = os.getenv("FAISS_META_FILE")
 os.makedirs("faiss", exist_ok=True)
 
-# 인덱스 로드 또는 초기화
 embedding_dim = 1536
 if os.path.exists(faiss_index_file):
     index = faiss.read_index(faiss_index_file)
@@ -37,16 +36,22 @@ else:
     index = faiss.IndexFlatL2(embedding_dim)
     metadata_list = []
 
-# 5. JSON → 자연어 문장 변환
-def site_json_to_text(site: dict) -> str:
-    return (
-        f"{site.get('city', '도시')} {site.get('address', '주소')}에 위치한 사이트는 "
-        f"아이디는 {site.get('id', '아이디')} 이며, 이름은 {site.get('name', '이름')} 이고, "
-        f"위도 {site.get('latitude', '위도')}°, 경도 {site.get('longitude', '경도')}°에 있으며, "
-        f"{site.get('country', '국가')}에 속합니다."
+# 5. JSON → 자연어 문장 변환 함수 (Class 연관 포함)
+def individual_json_to_text(data: dict) -> str:
+    type_name = data.get("type", "Site")  # 기본값을 Site로 설정
+    ind_id = data.get("id", "(unknown)")
+
+    text = f"{ind_id} is an individual of type {type_name}."
+
+    name_info = f" Its name is {data.get('name', '(no name)')}."
+    location = (
+        f" It is located in {data.get('city', 'a city')}, at {data.get('address', 'an address')}, "
+        f"with latitude {data.get('latitude', 'N/A')}° and longitude {data.get('longitude', 'N/A')}° in {data.get('country', 'a country')}."
     )
 
-# 6. OpenAI 임베딩
+    return f"{text}{name_info}{location}"
+
+# 6. 임베딩 함수
 def embed_text(text: str):
     try:
         response = client.embeddings.create(
@@ -61,12 +66,16 @@ def embed_text(text: str):
 # 7. 전체 처리 함수
 def create_site_individual(data):
     logging.info(f"✅ Received: {json.dumps(data, ensure_ascii=False)}")
-    text = site_json_to_text(data)
+    text = individual_json_to_text(data)
     print(text)
     logging.info(f"📝 Converted to text: {text}")
+
     embedding = embed_text(text)
+    if not embedding:
+        return
+
     vector = np.array(embedding, dtype=np.float32).reshape(1, -1)
-    print("FAISS에 추가")
+
     # FAISS에 추가
     index.add(vector)
     metadata_list.append({
@@ -74,6 +83,7 @@ def create_site_individual(data):
         "source": "site",
         "raw": data
     })
+
     # 저장
     faiss.write_index(index, faiss_index_file)
     with open(faiss_metadata_file, "wb") as f:
@@ -81,7 +91,7 @@ def create_site_individual(data):
 
     logging.info(f"📌 Added to FAISS. Total vectors: {index.ntotal}")
 
-# 8. Kafka Consumer
+# 8. Kafka Consumer 시작
 consumer = KafkaConsumer(
     os.getenv("SITE_TOPIC_NAME"),
     bootstrap_servers=os.getenv("KAFKA_IP"),
@@ -90,6 +100,7 @@ consumer = KafkaConsumer(
 )
 
 print("📡 Listening on topic:", os.getenv("SITE_TOPIC_NAME"))
+
 for message in consumer:
     site_data = message.value
     print(site_data)
