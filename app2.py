@@ -52,6 +52,11 @@ with st.sidebar:
     st.markdown("---")
     st.subheader("🧾 최근 등록 문장")
 
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("🔍 **사용 중인 파일 경로**")
+    st.sidebar.markdown(f"- **Index**: `{os.getenv('FAISS_INDEX_FILE')}`")
+    st.sidebar.markdown(f"- **Metadata**: `{os.getenv('FAISS_META_FILE')}`")
+
     if metadata:
         st.markdown("""
         <div style='height: 300px; overflow-y: auto; padding-right:10px;'>
