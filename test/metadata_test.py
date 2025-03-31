@@ -2,20 +2,16 @@ import pickle
 import os
 from dotenv import load_dotenv
 
+# 1. 환경 변수 로드
 load_dotenv()
-meta_file = os.getenv("FAISS_META_FILE")
 
-with open(meta_file, "rb") as f:
+# 2. 메타데이터 로딩
+with open(os.getenv("FAISS_META_FILE"), "rb") as f:
     data = pickle.load(f)
 
-cleaned = []
-for item in data:
-    if isinstance(item, str):
-        cleaned.append({"text": item, "source": "legacy"})
-    elif isinstance(item, dict) and "text" in item:
-        cleaned.append(item)
-
-with open(meta_file, "wb") as f:
-    pickle.dump(cleaned, f)
-
-print(f"✅ 정제 완료: {len(cleaned)}개 항목 저장")
+# 3. 최근 5개 출력 (방어적 출력)
+for i, item in enumerate(data[-37:]):
+    if isinstance(item, dict) and "text" in item:
+        print(f"[{i}] {item['text']}")
+    else:
+        print(f"[{i}] (Invalid item): {item}")
