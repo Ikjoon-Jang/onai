@@ -43,8 +43,8 @@ def route_json_to_text(data: dict) -> str:
     route_id = data.get("id", "(unknown)")
     name = data.get("name", "(no name)")
     duration = data.get("transit_days", "N/A")
-    waiting = data.get("departure_waiting_days", "N/A")
-    storage = data.get("storage_cost", "N/A")
+    waiting = data.get("minimum_storage_waiting_days", "N/A")
+    storage = data.get("daily_storage_cost", "N/A")
     transport = data.get("transport_cost", "N/A")
     currency = data.get("currency", "N/A")
     mode = data.get("transport_mode", "N/A")
@@ -56,8 +56,8 @@ def route_json_to_text(data: dict) -> str:
     # 영어 문장
     eng = (
         f"{route_id} is a Route named {name}. "
-        f"It takes {duration} days of transport and {waiting} days of waiting at departure. "
-        f"The storage cost is {storage}, transport cost is {transport}, using {currency}. "
+        f"It takes {duration} days of transport and {waiting} days of minimum waiting at departure. "
+        f"The daily storage cost is {storage}, transport cost is {transport}, using {currency}. "
         f"Transport mode: {mode}, distance: {distance} {unit}. "
         f"It starts from {departure} and ends at {destination}."
     )
@@ -65,8 +65,8 @@ def route_json_to_text(data: dict) -> str:
     # 한글 문장
     kor = (
         f"{route_id}는 '{name}'이라는 이름의 경로입니다. "
-        f"운송 소요일은 {duration}일이며, 출발 대기일은 {waiting}일입니다. "
-        f"보관비용은 {storage}, 운송비용은 {transport}, 통화는 {currency}입니다. "
+        f"운송 소요일은 {duration}일이며, 보관 최소 대기일은 {waiting}일입니다. "
+        f"일당 보관료는는 {storage}, 운송비용은 {transport}, 통화는 {currency}입니다. "
         f"운송 유형은 {mode}이고, 운송 거리는 {distance} {unit}입니다. "
         f"{departure}에서 출발하여 {destination}까지 운송됩니다."
     )
