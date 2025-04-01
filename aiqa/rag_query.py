@@ -11,7 +11,8 @@ load_dotenv()
 # OpenAI 설정
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_API_KEY)
-GPT_MODEL = "gpt-3.5-turbo"
+GPT_MODEL = os.getenv("GPT_MODEL")
+# "gpt-3.5-turbo"
 
 # GPT 응답 생성 함수
 def generate_answer(user_question: str, index=None, metadata=None, top_k: int = 10) -> str:

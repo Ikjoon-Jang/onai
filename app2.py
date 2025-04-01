@@ -60,6 +60,8 @@ with st.sidebar:
     st.header("📊 FAISS 상태")
     index = st.session_state["faiss_index"]
     metadata = st.session_state["faiss_meta"]
+    st.markdown(f"**사용 gpt 모델**: `{os.getenv("GPT_MODEL")}`")
+    st.sidebar.markdown("---")
     st.markdown(f"**총 벡터 수**: `{index.ntotal}`")
     st.sidebar.markdown("---")
     st.sidebar.markdown("🔍 **사용 중인 파일 경로**")

@@ -13,19 +13,94 @@ producer = KafkaProducer(
 )
 
 # 3. 샘플 Route 데이터 (Ontology 기준에 맞게 구성)
+# sample_route = {
+#     "id": "Route001",
+#     "name": "아산공장-부산항",
+#     "transit_days": 1,
+#     "departure_waiting_days": 0,
+#     "storage_cost": 0,
+#     "transport_cost": 300000,
+#     "currency": "KRW",
+#     "transport_mode": "Truck",
+#     "transport_distance": 430.5,
+#     "distance_unit": "km",
+#     "departure": "Site001",        
+#     "destination": "Site002"       
+# }
+
+# sample_route = {
+#     "id": "Route002",
+#     "name": "부산항-롱비치#1",
+#     "transit_days": 2,
+#     "departure_waiting_days": 1,
+#     "storage_cost": 50,
+#     "transport_cost": 3000,
+#     "currency": "USD",
+#     "transport_mode": "Air",
+#     "transport_distance": 6025,
+#     "distance_unit": "mi",
+#     "departure": "Site002",        
+#     "destination": "Site010"       
+# }
+
+# sample_route = {
+#     "id": "Route003",
+#     "name": "부산항-롱비치#2",
+#     "transit_days": 15,
+#     "departure_waiting_days": 2,
+#     "storage_cost": 100,
+#     "transport_cost": 500,
+#     "currency": "USD",
+#     "transport_mode": "Sea",
+#     "transport_distance": 6025,
+#     "distance_unit": "mi",
+#     "departure": "Site002",        
+#     "destination": "Site010"         
+# }
+
+# sample_route = {
+#     "id": "Route004",
+#     "name": "부산항-롱비치#3",
+#     "transit_days": 20,
+#     "departure_waiting_days": 1,
+#     "storage_cost": 50,
+#     "transport_cost": 300,
+#     "currency": "USD",
+#     "transport_mode": "Sea",
+#     "transport_distance": 6025,
+#     "distance_unit": "mi",
+#     "departure": "Site002",        
+#     "destination": "Site010"              
+# }
+
+# sample_route = {
+#     "id": "Route005",
+#     "name": "롱비치-LA야드",
+#     "transit_days": 1,
+#     "departure_waiting_days": 2,
+#     "storage_cost": 100,
+#     "transport_cost": 300,
+#     "currency": "USD",
+#     "transport_mode": "Rail",
+#     "transport_distance": 30,
+#     "distance_unit": "mi",
+#     "departure": "Site010",        
+#     "destination": "Site011"       
+# }
+
 sample_route = {
-    "id": "Route001",
-    "name": "아산공장-부산항",
+    "id": "Route006",
+    "name": "LA야드-배송야드",
     "transit_days": 1,
-    "departure_waiting_days": 0,
-    "storage_cost": 0,
-    "transport_cost": 300000,
-    "currency": "KRW",
+    "departure_waiting_days": 1,
+    "storage_cost": 50,
+    "transport_cost": 200,
+    "currency": "USD",
     "transport_mode": "Truck",
-    "transport_distance": 430.5,
-    "distance_unit": "km",
-    "departure": "Site001",        
-    "destination": "Site002"       
+    "transport_distance": 20,
+    "distance_unit": "mi",
+    "departure": "Site011",        
+    "destination": "Site015"       
 }
 
 # 4. Kafka 토픽으로 전송
