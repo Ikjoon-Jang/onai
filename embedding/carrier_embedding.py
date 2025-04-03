@@ -43,7 +43,12 @@ if invalid_rows:
 if not sentences:
     raise ValueError("❌ 유효한 문장이 없습니다. 데이터를 확인하세요.")
 
-# 5. 임베딩 요청 (OpenAI >= 1.0 방식)
+# 5. 콘솔에 문장 출력
+print("📦 전송할 문장 목록 (임베딩 요청 전):")
+for i, s in enumerate(sentences):
+    print(f"{i+1:02d}: {s}")
+
+# 6. 임베딩 요청 (OpenAI >= 1.0 방식)
 response = openai.embeddings.create(
     model="text-embedding-3-small",
     input=sentences
