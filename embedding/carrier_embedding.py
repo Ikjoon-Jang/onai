@@ -46,16 +46,29 @@ if not sentences:
 # 5. 콘솔에 문장 출력
 print("📦 전송할 문장 목록 (임베딩 요청 전):")
 for i, s in enumerate(sentences):
-    print(f"{i+1:02d}: {s}")
+    print(f"{i+1:04d}: {s}")
 
-# 6. 임베딩 요청 (OpenAI >= 1.0 방식)
-response = openai.embeddings.create(
-    model="text-embedding-3-small",
-    input=sentences
-)
+# 6. 배치 전송 (ex. 100개씩)
+batch_size = 100
+all_embeddings = []
 
-embeddings = [record.embedding for record in response.data]
+for i in range(0, len(sentences), batch_size):
+    batch = sentences[i:i + batch_size]
+    print(f"\n🚀 임베딩 요청 중: {i+1} ~ {i + len(batch)} 번째 문장")
 
-# 6. FAISS에 저장
-save_embeddings_to_faiss(sentences, embeddings)
-print("✅ 운송사 정보 임베딩 및 저장 완료!")
+    try:
+        response = openai.embeddings.create(
+            model="text-embedding-3-small",
+            input=batch
+        )
+        batch_embeddings = [r.embedding for r in response.data]
+        all_embeddings.extend(batch_embeddings)
+    except Exception as e:
+        print(f"❌ 배치 {i+1}-{i+len(batch)} 요청 중 오류 발생: {e}")
+
+# 7. FAISS에 저장
+if all_embeddings:
+    save_embeddings_to_faiss(sentences[:len(all_embeddings)], all_embeddings)
+    print("✅ 운송사 정보 임베딩 및 저장 완료!")
+else:
+    print("❌ 저장할 임베딩 결과가 없습니다.")
