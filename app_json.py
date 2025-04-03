@@ -1,9 +1,15 @@
 import streamlit as st
 import openai
 import json
+import os
+
+from openai import OpenAI
 
 # 🔐 OpenAI API 키 설정 (환경 변수 사용 권장)
-openai.api_key = "sk-..."  # 실제 키로 교체하거나 환경변수로 설정
+# openai.api_key = "sk-..."  # 실제 키로 교체하거나 환경변수로 설정
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 st.set_page_config(page_title="물류 추천 시스템", layout="centered")
 st.title("🚚 물류 오더 추천 시스템")
@@ -64,7 +70,7 @@ if submitted:
 
     with st.spinner("OpenAI에게 물어보는 중..."):
         try:
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-4-1106-preview",
                 messages=[{"role": "user", "content": user_message}],
                 tools=tool_schema,
