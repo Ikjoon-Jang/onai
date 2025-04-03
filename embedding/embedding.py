@@ -20,6 +20,10 @@ def get_embedding(text: str) -> List[float]:
     try:
         logging.info(f"📝 임베딩 요청 문장: {text[:100]}")  # 최대 100자까지 출력
 
+        text = text.strip()  # 공백 제거
+        if not text:
+            raise ValueError("입력 문장이 비어 있습니다.")
+
         response = client.embeddings.create(
             input=[text],
             model=EMBEDDING_MODEL
