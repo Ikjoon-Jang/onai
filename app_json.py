@@ -85,23 +85,25 @@ if submitted:
 
             st.success("✅ 추천 결과 도착!")
 
-            st.subheader("📅 운송 일정")
-            st.write(f"**출발 예정일:** {result['estimated_departure_date']}")
-            st.write(f"**도착 예정일:** {result['estimated_arrival_date']}")
+            st.json(result);
 
-            st.subheader("🚛 추천 경로")
-            for idx, route in enumerate(result['recommended_route'], 1):
-                st.markdown(f"**구간 {idx}**")
-                st.write(f"- 출발지: {route['departure']}")
-                st.write(f"- 도착지: {route['arrival']}")
-                st.write(f"- 운송사: {route['carrier']}")
-                st.write(f"- 소요일: {route['duration_days']}일")
-                st.write(f"- 운송비: {route['transport_cost']:,}원")
-                st.write(f"- 보관비: {route['storage_cost']:,}원")
+            # st.subheader("📅 운송 일정")
+            # st.write(f"**출발 예정일:** {result['estimated_departure_date']}")
+            # st.write(f"**도착 예정일:** {result['estimated_arrival_date']}")
 
-            st.subheader("💰 총 비용 예측")
-            st.write(f"**총 운송비:** {result['total_transport_cost']:,}원")
-            st.write(f"**총 보관비:** {result['total_storage_cost']:,}원")
+            # st.subheader("🚛 추천 경로")
+            # for idx, route in enumerate(result['recommended_route'], 1):
+            #     st.markdown(f"**구간 {idx}**")
+            #     st.write(f"- 출발지: {route['departure']}")
+            #     st.write(f"- 도착지: {route['arrival']}")
+            #     st.write(f"- 운송사: {route['carrier']}")
+            #     st.write(f"- 소요일: {route['duration_days']}일")
+            #     st.write(f"- 운송비: {route['transport_cost']:,}원")
+            #     st.write(f"- 보관비: {route['storage_cost']:,}원")
+
+            # st.subheader("💰 총 비용 예측")
+            # st.write(f"**총 운송비:** {result['total_transport_cost']:,}원")
+            # st.write(f"**총 보관비:** {result['total_storage_cost']:,}원")
 
         except Exception as e:
             st.error(f"⚠️ 오류 발생: {e}")
