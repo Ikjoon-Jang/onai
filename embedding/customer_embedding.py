@@ -9,7 +9,7 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # 엑셀 파일 경로
-EXCEL_PATH = os.getenv("CARRIER_FILE")
+EXCEL_PATH = os.getenv("CUSTOMER_FILE")
 df = pd.read_excel(EXCEL_PATH)
 
 # 누락된 row 저장용 리스트
@@ -19,7 +19,7 @@ invalid_rows = []
 def convert_to_text(row):
     try:
         return (
-            f"[Carrier Info] {row['SHIPTO_NM']} is a logistics carrier located at {row['TOT_ADDR']} "
+            f"[Customer Info] {row['SHIPTO_NM']} is a logistics carrier located at {row['TOT_ADDR']} "
             f"({row['CITY_NM']}, {row['STATE_NM']}, ZIP: {row['ZIP']}). "
             f"Coordinates are LAT: {row['LAT']}, LON: {row['LON']}."
         )
