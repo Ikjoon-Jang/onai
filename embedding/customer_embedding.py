@@ -19,7 +19,9 @@ invalid_rows = []
 def convert_to_text(row):
     try:
         return (
-            f"[Customer Info] {row['SHIPTO_NM']} (ID: {row['SHIPTO_ID']}) is a customer location at {row['TOT_ADDR']} "
+
+            f"[Customer Info] ID {row['SHIPTO_ID']} refers to {row['SHIPTO_NM']}, "
+            f"a customer located at {row['TOT_ADDR']} "
             f"({row['CITY_NM']}, {row['STATE_NM']}, ZIP: {row['ZIP']}). "
             f"Coordinates are LAT: {row['LAT']}, LON: {row['LON']}."
         )
