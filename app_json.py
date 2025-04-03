@@ -4,6 +4,9 @@ import json
 import os
 
 from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 🔐 OpenAI API 키 설정 (환경 변수 사용 권장)
 # openai.api_key = "sk-..."  # 실제 키로 교체하거나 환경변수로 설정
