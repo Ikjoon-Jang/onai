@@ -75,7 +75,7 @@ with st.sidebar:
         <div style='height: 300px; overflow-y: auto; padding-right:10px;'>
         """, unsafe_allow_html=True)
 
-        for i, item in enumerate(metadata[::-1]):  # 전체 표시
+        for i, item in enumerate(metadata[::-1][:100]):  # 전체 표시
             full_text = item["text"] if isinstance(item, dict) else str(item)
             st.markdown(f"**#{index.ntotal - i}**:<br>{full_text}<hr>", unsafe_allow_html=True)
 
