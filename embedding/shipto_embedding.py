@@ -70,6 +70,6 @@ for i in range(0, len(sentences), batch_size):
 # 7. FAISS에 저장
 if all_embeddings:
     save_embeddings_to_faiss(sentences[:len(all_embeddings)], all_embeddings)
-    print("✅ 운송사 정보 임베딩 및 저장 완료!")
+    print("✅ 로케이션 정보 임베딩 및 저장 완료!")
 else:
     print("❌ 저장할 임베딩 결과가 없습니다.")
